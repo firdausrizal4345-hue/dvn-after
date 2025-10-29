@@ -215,89 +215,86 @@
   </div>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwlamvHcxmje5dvWPikJocimZqFnz3JlzmJoLSapXQKeajHklfoQ8r1-zmej_xtz_JrdQ/exec'; // ganti dengan URL Google Apps Script kamu
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwlamvHcxmje5dvWPikJocimZqFnz3JlzmJoLSapXQKeajHklfoQ8r1-zmej_xtz_JrdQ/exec';
 
-    const questions = [
-      { title: '1. Konsumsi DVN', text: 'Seberapa rutin kamu minum DVN pagi & malam?', options: ['Kadang lupa minum lebih dari 3x seminggu', '5–6x seminggu, kadang skip 1–2 kali', 'Hampir tiap hari (jarang skip)', 'Konsisten banget tiap pagi & malam'] },
-      { title: '2. Perubahan kulit', text: 'Bagaimana kondisi kulit kamu sekarang dibanding sebelum mulai challenge?', options: ['Masih sama seperti awal, belum terasa lembap', 'Sedikit lebih lembap tapi masih kering di area tertentu', 'Lembap dan lebih halus saat disentuh', 'Halus, cerah, dan sehat (tekstur makin merata)'] },
-      { title: '3. Pola tidur', text: 'Selama sebulan terakhir, kamu tidur jam berapa dan kualitasnya?', options: ['Sering begadang (tidur <5 jam)', 'Tidur tidak teratur (kadang sebelum jam 12, kadang lewat)', 'Mulai tidur lebih awal (sekitar jam 11, 6–7 jam tidur)', 'Tidur cukup 7–8 jam dan bangun segar 😴'] },
-      { title: '4. Asupan air & makanan', text: 'Bagaimana kesadaran kamu terhadap minum air & makan sehat?', options: ['Jarang minum air (<3 gelas/hari)', 'Kadang ingat minum, belum rutin', 'Sudah mulai minum 6–8 gelas/hari', 'Rajin minum air & jaga pola makan seimbang 💧'] },
-      { title: '5. Mood & stress', text: 'Bagaimana kondisi mood dan stres kamu akhir-akhir ini?', options: ['Sering moody atau mudah stres tiap minggu', 'Masih kadang stres tapi mulai bisa kontrol', 'Lebih tenang di keseharian', 'Mood stabil dan semangat tiap hari 🌸'] },
-      { title: '6. Skincare routine', text: 'Bagaimana rutinitas skincare kamu selama 30 hari ini?', options: ['Masih jarang pakai skincare', 'Mulai rutin tapi kadang lupa sunscreen', 'Sudah rutin tiap pagi & malam', 'Konsisten full skincare termasuk sunscreen 💆🏻‍♀️'] },
-      { title: '7. Energi & semangat', text: 'Bagaimana tingkat energi kamu setiap harinya?', options: ['Sering lemas, gampang lelah', 'Mulai sedikit lebih segar', 'Energi stabil sepanjang hari', 'Badan enteng & semangat tinggi 💪🏻'] },
-      { title: '8. Self-confidence', text: 'Ketika lihat wajah di cermin sekarang...', options: ['Masih belum percaya diri', 'Mulai lebih nyaman lihat wajah sendiri', 'Sudah pede bare face di rumah', 'Pede tampil tanpa makeup 🌞'] },
-      { title: '9. Mindset perubahan', text: 'Seberapa sadar kamu tentang pentingnya rawat diri dari dalam?', options: ['Belum paham pentingnya', 'Mulai paham & coba pelan-pelan', 'Sudah lebih aware & rutin', 'Ngerti pentingnya keseimbangan mental & fisik 💖'] },
-      { title: '10. Kebiasaan baru', text: 'Apakah kamu merasa ada perubahan gaya hidup lebih sehat?', options: ['Belum ada perubahan berarti', 'Mulai kurangi kebiasaan buruk', 'Sudah punya beberapa kebiasaan baik baru', 'Hidup lebih mindful & seimbang 🌿'] }
-    ];
+  const questions = [
+    { title: '1. Konsumsi DVN', text: 'Seberapa rutin kamu minum DVN pagi & malam?', options: ['Kadang lupa minum lebih dari 3x seminggu', '5–6x seminggu, kadang skip 1–2 kali', 'Hampir tiap hari (jarang skip)', 'Konsisten banget tiap pagi & malam'] },
+    { title: '2. Perubahan kulit', text: 'Bagaimana kondisi kulit kamu sekarang dibanding sebelum mulai challenge?', options: ['Masih sama seperti awal, belum terasa lembap', 'Sedikit lebih lembap tapi masih kering di area tertentu', 'Lembap dan lebih halus saat disentuh', 'Halus, cerah, dan sehat (tekstur makin merata)'] },
+    { title: '3. Pola tidur', text: 'Selama sebulan terakhir, kamu tidur jam berapa dan kualitasnya?', options: ['Sering begadang (tidur <5 jam)', 'Tidur tidak teratur (kadang sebelum jam 12, kadang lewat)', 'Mulai tidur lebih awal (sekitar jam 11, 6–7 jam tidur)', 'Tidur cukup 7–8 jam dan bangun segar 😴'] },
+    { title: '4. Asupan air & makanan', text: 'Bagaimana kesadaran kamu terhadap minum air & makan sehat?', options: ['Jarang minum air (<3 gelas/hari)', 'Kadang ingat minum, belum rutin', 'Sudah mulai minum 6–8 gelas/hari', 'Rajin minum air & jaga pola makan seimbang 💧'] },
+    { title: '5. Mood & stress', text: 'Bagaimana kondisi mood dan stres kamu akhir-akhir ini?', options: ['Sering moody atau mudah stres tiap minggu', 'Masih kadang stres tapi mulai bisa kontrol', 'Lebih tenang di keseharian', 'Mood stabil dan semangat tiap hari 🌸'] },
+    { title: '6. Skincare routine', text: 'Bagaimana rutinitas skincare kamu selama 30 hari ini?', options: ['Masih jarang pakai skincare', 'Mulai rutin tapi kadang lupa sunscreen', 'Sudah rutin tiap pagi & malam', 'Konsisten full skincare termasuk sunscreen 💆🏻‍♀️'] },
+    { title: '7. Energi & semangat', text: 'Bagaimana tingkat energi kamu setiap harinya?', options: ['Sering lemas, gampang lelah', 'Mulai sedikit lebih segar', 'Energi stabil sepanjang hari', 'Badan enteng & semangat tinggi 💪🏻'] },
+    { title: '8. Self-confidence', text: 'Ketika lihat wajah di cermin sekarang...', options: ['Masih belum percaya diri', 'Mulai lebih nyaman lihat wajah sendiri', 'Sudah pede bare face di rumah', 'Pede tampil tanpa makeup 🌞'] },
+    { title: '9. Mindset perubahan', text: 'Seberapa sadar kamu tentang pentingnya rawat diri dari dalam?', options: ['Belum paham pentingnya', 'Mulai paham & coba pelan-pelan', 'Sudah lebih aware & rutin', 'Ngerti pentingnya keseimbangan mental & fisik 💖'] },
+    { title: '10. Kebiasaan baru', text: 'Apakah kamu merasa ada perubahan gaya hidup lebih sehat?', options: ['Belum ada perubahan berarti', 'Mulai kurangi kebiasaan buruk', 'Sudah punya beberapa kebiasaan baik baru', 'Hidup lebih mindful & seimbang 🌿'] }
+  ];
 
-    const form = document.getElementById('quizForm');
+  const form = document.getElementById('quizForm');
 
-    questions.forEach((q, i) => {
-      const qDiv = document.createElement('div');
-      qDiv.classList.add('question');
-      qDiv.innerHTML = `<strong>${q.title}</strong><br><span>${q.text}</span>`;
-      const optsDiv = document.createElement('div');
-      optsDiv.classList.add('options');
-      q.options.forEach((opt, idx) => {
-        const label = document.createElement('label');
-        label.innerHTML = `<input type="radio" name="q${i+1}" value="${idx+1}"> ${String.fromCharCode(65+idx)}. ${opt}`;
-        optsDiv.appendChild(label);
-      });
-      qDiv.appendChild(optsDiv);
-      form.appendChild(qDiv);
+  // Generate pertanyaan
+  questions.forEach((q, i) => {
+    const qDiv = document.createElement('div');
+    qDiv.classList.add('question');
+    qDiv.innerHTML = `<strong>${q.title}</strong><br><span>${q.text}</span>`;
+    const optsDiv = document.createElement('div');
+    optsDiv.classList.add('options');
+    q.options.forEach((opt, idx) => {
+      const label = document.createElement('label');
+      label.innerHTML = `<input type="radio" name="q${i+1}" value="${String.fromCharCode(65+idx)}. ${opt}"> ${String.fromCharCode(65+idx)}. ${opt}`;
+      optsDiv.appendChild(label);
     });
+    qDiv.appendChild(optsDiv);
+    form.appendChild(qDiv);
+  });
 
-    document.getElementById('submitBtn').addEventListener('click', () => {
-      const nama = document.getElementById('nama').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
-      if (!nama || !whatsapp) {
-        alert('Mohon isi nama dan nomor WhatsApp terlebih dahulu');
-        return;
-      }
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const nama = document.getElementById('nama').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    if (!nama || !whatsapp) {
+      alert('Mohon isi nama dan nomor WhatsApp terlebih dahulu');
+      return;
+    }
 
-      let score = 0;
-      for (let i = 1; i <= 10; i++) {
-        const selected = document.querySelector(`input[name='q${i}']:checked`);
-        if (selected) score += parseInt(selected.value);
-      }
-
-      const percentage = (score / 40) * 100;
-      const resultPage = document.getElementById('result-page');
-      const quizPage = document.getElementById('quiz-page');
-      const scoreText = document.getElementById('score');
-      const detailsText = document.getElementById('details');
-
-      quizPage.style.display = 'none';
-      resultPage.style.display = 'block';
-
-      scoreText.textContent = `${nama}, skor kamu: ${percentage.toFixed(0)}%`;
-
-      let message = '';
-      if (percentage <= 50) {
-        message = `🤍 0–50% → Masih belum konsisten, tapi kamu udah mulai jalan ✨\n\nBelum konsisten itu wajar banget di awal. Tubuh kamu lagi adaptasi — kadang hasilnya belum kelihatan, tapi prosesnya udah jalan 💫\n\nYuk lanjut pelan-pelan bareng Vic & Tere 💕`;
-      } else if (percentage <= 70) {
-        message = `💛 51–70% → Mulai stabil, tinggal dijaga aja!\n\nProgress kamu udah kelihatan 🌸 Biasanya di fase ini tubuh udah mulai kasih respon positif. Yuk lanjut 1–2 bulan lagi biar hasilnya makin stabil ✨`;
-      } else if (percentage <= 85) {
-        message = `💕 71–85% → Konsistensimu keren banget!\n\nKamu udah punya kebiasaan bagus 💪🏻 Yuk lanjut ke fase glow consistency ✨`;
+    let score = 0;
+    const answers = [];
+    for (let i = 1; i <= questions.length; i++) {
+      const selected = document.querySelector(`input[name='q${i}']:checked`);
+      if (selected) {
+        const value = selected.value;
+        answers.push(value);
+        // ambil nilai angka terakhir buat hitung skor (A=1, B=2, dst)
+        score += value.charCodeAt(0) - 64;
       } else {
-        message = `🌷 86–100% → You did it!\n\nTubuh kamu udah kasih respon terbaik! Sekarang tinggal dijaga dan lanjut ke fase maintenance glow ✨`;
+        answers.push("-");
       }
+    }
 
-      detailsText.textContent = message;
+    const percentage = (score / (questions.length * 4)) * 100;
 
-      // --- Kirim hasil ke Google Sheets ---
-      const formData = new FormData();
-      formData.append('nama', nama);
-      formData.append('whatsapp', whatsapp);
-      formData.append('score', percentage.toFixed(0));
+    // --- Kirim ke Google Sheets ---
+    const formData = new FormData();
+    formData.append('nama', nama);
+    formData.append('whatsapp', whatsapp);
+    formData.append('score', percentage.toFixed(0));
+    formData.append('sumber', 'After 30 Days Journey');
 
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => {
-          if (!response.ok) throw new Error('Gagal kirim data ke Google Sheets');
-          console.log('Data berhasil dikirim');
-        })
-        .catch(error => console.error('Error!', error));
+    // kirim juga semua jawaban (Q1-Q10)
+    answers.forEach((ans, i) => {
+      formData.append(`Q${i + 1}`, ans);
     });
-  </script>
-</body>
-</html>
+
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(res => res.ok ? console.log('✅ Data terkirim!') : console.error('Gagal kirim'))
+      .catch(err => console.error('Error!', err));
+
+    // tampilkan hasil
+    document.getElementById('quiz-page').style.display = 'none';
+    document.getElementById('result-page').style.display = 'block';
+    document.getElementById('score').textContent = `${nama}, skor kamu: ${percentage.toFixed(0)}%`;
+    document.getElementById('details').textContent =
+      percentage <= 50
+        ? '🤍 Masih awal perjalananmu, yuk lanjut terus bareng Vic & Tere!'
+        : '✨ Konsistensimu keren banget, teruskan ya!';
+  });
+</script>
