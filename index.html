@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>After 30 Days Journey with Vic & Tere ✨</title>
+  <title>Refleksi Perjalanan DVN ✨</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -19,18 +19,6 @@
       padding: 40px 20px;
       overflow: auto;
     }
-    .bubble {
-      position: absolute;
-      background: rgba(255, 182, 193, 0.18);
-      border-radius: 50%;
-      animation: float 12s infinite ease-in-out;
-      z-index: 1;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 0.7; }
-      50% { transform: translateY(-25px); opacity: 1; }
-      100% { transform: translateY(0); opacity: 0.7; }
-    }
     .container {
       background: rgba(255,255,255,0.96);
       padding: 40px;
@@ -43,15 +31,12 @@
       z-index: 2;
     }
     header {
-      background: linear-gradient(to right, rgba(255, 230, 240, 0.8), rgba(255,255,255,0));
-      border-radius: 14px;
-      padding: 10px 15px;
       text-align: center;
       margin-bottom: 30px;
     }
     h1 {
       color: #e85b81;
-      margin: 0 0 6px 0;
+      margin: 0 0 10px 0;
       font-weight: 700;
     }
     p.subtitle {
@@ -158,14 +143,10 @@
   </style>
 </head>
 <body>
-  <div class="bubble" style="width:120px; height:120px; top:6%; left:6%; animation-delay:0s;"></div>
-  <div class="bubble" style="width:180px; height:180px; top:60%; right:6%; animation-delay:3s;"></div>
-  <div class="bubble" style="width:90px; height:90px; top:75%; left:22%; animation-delay:6s;"></div>
-
   <div class="container" id="quiz-page">
     <header>
-      <h1>After 30 Days Journey with Vic & Tere ✨</h1>
-      <p class="subtitle">Hai! Yuk refleksi bareng perubahan positif yang kamu rasain setelah 30 hari konsumsi DVN 💫</p>
+      <h1>Refleksi 30 Hari DVN ✨</h1>
+      <p class="subtitle">Bagaimana perkembanganmu selama 30 hari terakhir?</p>
     </header>
 
     <form id="quizForm">
@@ -180,38 +161,33 @@
     </form>
 
     <div class="controls">
-      <button type="button" class="btn-submit" id="submitBtn">Submit ✨</button>
+      <button type="button" class="btn-submit" id="submitBtn">Kirim Refleksi ✨</button>
     </div>
   </div>
 
   <div class="result-page" id="result-page">
     <div class="score-container">
-      <h1>Hasil After 30 Days Journey ✨</h1>
-      <p class="subtitle">Perjalanan kamu bareng Vic & Tere 💕</p>
+      <h1>Terima kasih 💖</h1>
       <div class="score" id="score"></div>
       <div class="details" id="details"></div>
     </div>
   </div>
 
   <script>
+  // GANTI dengan URL Web App Google Apps Script kamu
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzuhl2Ry8qWDmT9rb-CeFB4HpznGWPn4l87tIXOPYtzD1CpijmtY6DlqaHfs_dDe_qf0Q/exec';
 
   const questions = [
-    { title: '1. Konsumsi DVN', text: 'Seberapa rutin kamu minum DVN pagi & malam?', options: ['Kadang lupa minum lebih dari 3x seminggu', '5–6x seminggu, kadang skip 1–2 kali', 'Hampir tiap hari (jarang skip)', 'Konsisten banget tiap pagi & malam'] },
-    { title: '2. Perubahan kulit', text: 'Bagaimana kondisi kulit kamu sekarang dibanding sebelum mulai challenge?', options: ['Masih sama seperti awal, belum terasa lembap', 'Sedikit lebih lembap tapi masih kering di area tertentu', 'Lembap dan lebih halus saat disentuh', 'Halus, cerah, dan sehat (tekstur makin merata)'] },
-    { title: '3. Pola tidur', text: 'Selama sebulan terakhir, kamu tidur jam berapa dan kualitasnya?', options: ['Sering begadang (tidur <5 jam)', 'Tidur tidak teratur (kadang sebelum jam 12, kadang lewat)', 'Mulai tidur lebih awal (sekitar jam 11, 6–7 jam tidur)', 'Tidur cukup 7–8 jam dan bangun segar 😴'] },
-    { title: '4. Asupan air & makanan', text: 'Bagaimana kesadaran kamu terhadap minum air & makan sehat?', options: ['Jarang minum air (<3 gelas/hari)', 'Kadang ingat minum, belum rutin', 'Sudah mulai minum 6–8 gelas/hari', 'Rajin minum air & jaga pola makan seimbang 💧'] },
-    { title: '5. Mood & stress', text: 'Bagaimana kondisi mood dan stres kamu akhir-akhir ini?', options: ['Sering moody atau mudah stres tiap minggu', 'Masih kadang stres tapi mulai bisa kontrol', 'Lebih tenang di keseharian', 'Mood stabil dan semangat tiap hari 🌸'] },
-    { title: '6. Skincare routine', text: 'Bagaimana rutinitas skincare kamu selama 30 hari ini?', options: ['Masih jarang pakai skincare', 'Mulai rutin tapi kadang lupa sunscreen', 'Sudah rutin tiap pagi & malam', 'Konsisten full skincare termasuk sunscreen 💆🏻‍♀️'] },
-    { title: '7. Energi & semangat', text: 'Bagaimana tingkat energi kamu setiap harinya?', options: ['Sering lemas, gampang lelah', 'Mulai sedikit lebih segar', 'Energi stabil sepanjang hari', 'Badan enteng & semangat tinggi 💪🏻'] },
-    { title: '8. Self-confidence', text: 'Ketika lihat wajah di cermin sekarang...', options: ['Masih belum percaya diri', 'Mulai lebih nyaman lihat wajah sendiri', 'Sudah pede bare face di rumah', 'Pede tampil tanpa makeup 🌞'] },
-    { title: '9. Mindset perubahan', text: 'Seberapa sadar kamu tentang pentingnya rawat diri dari dalam?', options: ['Belum paham pentingnya', 'Mulai paham & coba pelan-pelan', 'Sudah lebih aware & rutin', 'Ngerti pentingnya keseimbangan mental & fisik 💖'] },
-    { title: '10. Kebiasaan baru', text: 'Apakah kamu merasa ada perubahan gaya hidup lebih sehat?', options: ['Belum ada perubahan berarti', 'Mulai kurangi kebiasaan buruk', 'Sudah punya beberapa kebiasaan baik baru', 'Hidup lebih mindful & seimbang 🌿'] }
+    { title: '1. Konsumsi DVN', text: 'Seberapa rutin kamu minum DVN?', options: ['Kadang lupa minum', '5–6x seminggu', 'Hampir tiap hari', 'Konsisten tiap pagi & malam'] },
+    { title: '2. Perubahan kulit', text: 'Bagaimana kondisi kulit kamu sekarang?', options: ['Masih sama', 'Sedikit lebih lembap', 'Lembap dan halus', 'Cerah dan sehat 🌸'] },
+    { title: '3. Pola tidur', text: 'Kualitas tidur kamu akhir-akhir ini?', options: ['Kurang tidur', 'Tidak teratur', 'Mulai cukup tidur', 'Tidur nyenyak & segar 😴'] },
+    { title: '4. Energi & semangat', text: 'Bagaimana energi harian kamu?', options: ['Sering lelah', 'Mulai lebih segar', 'Energi stabil', 'Semangat tinggi 💪🏻'] },
+    { title: '5. Kepercayaan diri', text: 'Sekarang kamu merasa...', options: ['Masih minder', 'Mulai pede', 'Nyaman bare face', 'Bangga dengan diri sendiri 💖'] }
   ];
 
   const form = document.getElementById('quizForm');
 
-  // Generate pertanyaan
+  // Buat pertanyaan otomatis
   questions.forEach((q, i) => {
     const qDiv = document.createElement('div');
     qDiv.classList.add('question');
@@ -249,31 +225,30 @@
     }
 
     const percentage = (score / (questions.length * 4)) * 100;
+    const allAnswers = answers.map((ans, i) => `${i + 1}:${ans}`).join(', ');
 
-    // --- Kirim ke Google Sheets ---
+    // Teks hasil untuk tampilan & dikirim ke sheet
+    const hasilText = percentage <= 50
+      ? `Skor kamu: ${percentage.toFixed(0)}% — 🤍 Masih awal perjalananmu, yuk lanjut terus!`
+      : `Skor kamu: ${percentage.toFixed(0)}% — ✨ Konsistensimu keren banget, teruskan ya!`;
+
+    // Kirim ke Google Sheets
     const formData = new FormData();
     formData.append('nama', nama);
     formData.append('whatsapp', whatsapp);
     formData.append('score', percentage.toFixed(0));
-    formData.append('jawaban', allAnswers);
-
-
-    // Gabungkan semua jawaban jadi satu kolom
-    const allAnswers = answers.map((ans, i) => `${i + 1}:${ans}`).join(', ');
+    formData.append('hasil', hasilText);
     formData.append('jawaban', allAnswers);
 
     fetch(scriptURL, { method: 'POST', body: formData })
-      .then(res => res.ok ? console.log('✅ Data terkirim!') : console.error('Gagal kirim'))
+      .then(res => res.ok ? console.log('✅ Data terkirim!') : console.error('❌ Gagal kirim'))
       .catch(err => console.error('Error!', err));
 
-    // tampilkan hasil
+    // Tampilkan hasil di layar
     document.getElementById('quiz-page').style.display = 'none';
     document.getElementById('result-page').style.display = 'block';
-    document.getElementById('score').textContent = `${nama}, skor kamu: ${percentage.toFixed(0)}%`;
-    document.getElementById('details').textContent =
-      percentage <= 50
-        ? '🤍 Masih awal perjalananmu, yuk lanjut terus bareng Vic & Tere!'
-        : '✨ Konsistensimu keren banget, teruskan ya!';
+    document.getElementById('score').textContent = hasilText;
+    document.getElementById('details').textContent = 'Terima kasih sudah mengisi refleksi kamu 💕';
   });
   </script>
 </body>
