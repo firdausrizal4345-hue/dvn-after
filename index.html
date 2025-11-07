@@ -19,7 +19,6 @@
       padding: 40px 20px;
       overflow: auto;
     }
-
     .bubble {
       position: absolute;
       background: rgba(255, 182, 193, 0.18);
@@ -27,13 +26,11 @@
       animation: float 12s infinite ease-in-out;
       z-index: 1;
     }
-
     @keyframes float {
       0% { transform: translateY(0); opacity: 0.7; }
       50% { transform: translateY(-25px); opacity: 1; }
       100% { transform: translateY(0); opacity: 0.7; }
     }
-
     .container {
       background: rgba(255,255,255,0.96);
       padding: 40px;
@@ -45,7 +42,6 @@
       position: relative;
       z-index: 2;
     }
-
     header {
       background: linear-gradient(to right, rgba(255, 230, 240, 0.8), rgba(255,255,255,0));
       border-radius: 14px;
@@ -53,19 +49,16 @@
       text-align: center;
       margin-bottom: 30px;
     }
-
     h1 {
       color: #e85b81;
       margin: 0 0 6px 0;
       font-weight: 700;
     }
-
     p.subtitle {
       font-size: 15px;
       color: #555;
       margin: 0 0 18px 0;
     }
-
     .question {
       margin-bottom: 28px;
       font-weight: 600;
@@ -75,7 +68,6 @@
       padding: 16px;
       border-radius: 12px;
     }
-
     .options label {
       display: block;
       margin: 10px 0;
@@ -87,28 +79,23 @@
       text-align: left;
       transition: all 0.25s ease;
     }
-
     .options label:hover {
       background: #ffd6e6;
       transform: scale(1.01);
     }
-
     input[type="radio"] {
       margin-right: 10px;
       vertical-align: middle;
     }
-
     .info-input {
       margin-bottom: 24px;
     }
-
     .info-input label {
       display: block;
       font-weight: 600;
       margin-bottom: 6px;
       color: #555;
     }
-
     .info-input input {
       width: 100%;
       padding: 12px;
@@ -117,14 +104,12 @@
       background: #fff0f5;
       font-family: 'Poppins', sans-serif;
     }
-
     .controls {
       margin-top: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
     .btn-submit {
       background: #e85b81;
       color: white;
@@ -135,17 +120,14 @@
       cursor: pointer;
       transition: background 0.25s, transform 0.2s;
     }
-
     .btn-submit:hover {
       background: #d94a6f;
       transform: scale(1.05);
     }
-
     .result-page {
       display: none;
       text-align: center;
     }
-
     .score-container {
       background: rgba(255,255,255,0.95);
       padding: 40px;
@@ -155,19 +137,16 @@
       margin-top: 30px;
       animation: fadeIn 1s ease;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .score {
       font-size: 24px;
       font-weight: 700;
       color: #e85b81;
       margin-bottom: 20px;
     }
-
     .details {
       background: #fff8fb;
       padding: 20px;
@@ -263,8 +242,7 @@
       if (selected) {
         const value = selected.value;
         answers.push(value);
-        // ambil nilai angka terakhir buat hitung skor (A=1, B=2, dst)
-        score += value.charCodeAt(0) - 64;
+        score += value.charCodeAt(0) - 64; // A=1, B=2, dst
       } else {
         answers.push("-");
       }
@@ -279,10 +257,9 @@
     formData.append('score', percentage.toFixed(0));
     formData.append('sumber', 'After 30 Days Journey');
 
-    // kirim juga semua jawaban (Q1-Q10)
-    answers.forEach((ans, i) => {
-      formData.append(`Q${i + 1}`, ans);
-    });
+    // Gabungkan semua jawaban jadi satu kolom
+    const allAnswers = answers.map((ans, i) => `${i + 1}:${ans}`).join(', ');
+    formData.append('jawaban', allAnswers);
 
     fetch(scriptURL, { method: 'POST', body: formData })
       .then(res => res.ok ? console.log('✅ Data terkirim!') : console.error('Gagal kirim'))
@@ -297,4 +274,6 @@
         ? '🤍 Masih awal perjalananmu, yuk lanjut terus bareng Vic & Tere!'
         : '✨ Konsistensimu keren banget, teruskan ya!';
   });
-</script>
+  </script>
+</body>
+</html>
