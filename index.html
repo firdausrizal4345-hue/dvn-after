@@ -255,7 +255,8 @@
     formData.append('nama', nama);
     formData.append('whatsapp', whatsapp);
     formData.append('score', percentage.toFixed(0));
-    formData.append('sumber', 'After 30 Days Journey');
+    formData.append('jawaban', allAnswers);
+
 
     // Gabungkan semua jawaban jadi satu kolom
     const allAnswers = answers.map((ans, i) => `${i + 1}:${ans}`).join(', ');
